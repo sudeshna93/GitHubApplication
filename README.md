@@ -35,6 +35,9 @@ second screen is hitting "url" point
 Should move this call to the first screen, and only do once-per-user
     * repo count is on this "url"
     
+3.   Rate-Limit
+     The Search API has a custom rate limit. For requests using Basic Authentication, OAuth, or client ID and secret, you can make up to 30 requests per minute. For unauthenticated requests, the rate limit allows you to make up to 10 requests per minute.
+    
 
 
 

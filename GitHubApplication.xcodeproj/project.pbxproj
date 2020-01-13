@@ -99,9 +99,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		021F2F0323CD11BD00C35A06 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02BD887823C92E5200A2CF6F /* ViewController.swift */,
+				02BD88AF23C9441B00A2CF6F /* UserDisplayCell.swift */,
+				02BD88B323C994D800A2CF6F /* ShowDetailsVC.swift */,
+				02BD88B523C995D000A2CF6F /* RepoDisplayCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		021F2F0423CD11EB00C35A06 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				02BD88B123C950D400A2CF6F /* UserController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		021F2F0523CD11FE00C35A06 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				021F2F0123CCF40300C35A06 /* Extension+Date.swift */,
+				02BD888023C92E5500A2CF6F /* Assets.xcassets */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		02BD886823C92E5200A2CF6F = {
 			isa = PBXGroup;
 			children = (
+				021F2F0023CCC5D300C35A06 /* README.md */,
 				02BD887323C92E5200A2CF6F /* GitHubApplication */,
 				02BD888D23C92E5500A2CF6F /* GitHubApplicationTests */,
 				02BD889823C92E5500A2CF6F /* GitHubApplicationUITests */,
@@ -122,22 +151,17 @@
 		02BD887323C92E5200A2CF6F /* GitHubApplication */ = {
 			isa = PBXGroup;
 			children = (
+				021F2F0523CD11FE00C35A06 /* Utilities */,
+				021F2F0423CD11EB00C35A06 /* Controller */,
+				021F2F0323CD11BD00C35A06 /* Views */,
 				02BD88AA23C93A8400A2CF6F /* Services */,
 				02BD88A723C938AC00A2CF6F /* Model */,
 				02BD887423C92E5200A2CF6F /* AppDelegate.swift */,
 				02BD887623C92E5200A2CF6F /* SceneDelegate.swift */,
-				02BD887823C92E5200A2CF6F /* ViewController.swift */,
-				02BD88AF23C9441B00A2CF6F /* UserDisplayCell.swift */,
-				02BD88B323C994D800A2CF6F /* ShowDetailsVC.swift */,
-				02BD88B523C995D000A2CF6F /* RepoDisplayCell.swift */,
 				02BD887A23C92E5200A2CF6F /* Main.storyboard */,
-				02BD888023C92E5500A2CF6F /* Assets.xcassets */,
 				02BD888223C92E5500A2CF6F /* LaunchScreen.storyboard */,
 				02BD888523C92E5500A2CF6F /* Info.plist */,
 				02BD887D23C92E5200A2CF6F /* GitHubApplication.xcdatamodeld */,
-				02BD88B123C950D400A2CF6F /* UserController.swift */,
-				021F2F0023CCC5D300C35A06 /* README.md */,
-				021F2F0123CCF40300C35A06 /* Extension+Date.swift */,
 			);
 			path = GitHubApplication;
 			sourceTree = "<group>";

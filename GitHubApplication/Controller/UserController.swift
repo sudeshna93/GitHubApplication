@@ -11,9 +11,7 @@ import Foundation
 protocol UserControllerProtocol {
     var githubs: [GitHub] {get}
     var userinfo : [UserInfo] { get }
-    //var isSearching: Bool { get }
     func download (searchtext: String, _ completion: @escaping ([GitHub])->Void)
-    //func search(query: String) -> [GitHub]
     func getPicture(_ url: URL, _ completion: @escaping (Data?)-> Void)
     func cancelTask(_ oldURL: URL)
 }
@@ -22,7 +20,6 @@ class UserController: UserControllerProtocol {
    
     //MARK:- Properties
     
-   // private var _githubs: [GitHub] = []
     var page = 1
     var per_page = 10
     var githubs : [GitHub] = []
@@ -36,9 +33,8 @@ class UserController: UserControllerProtocol {
     var isSearching: Bool = false
     
     //MARK: Methods
+    //Function for downloading github user details by using search text
     func download(searchtext: String, _ completion: @escaping ([GitHub]) -> Void) {
-
-//        let url = URL(string: "https://api.github.com/search/users?q=" + "\(searchtext)" + "&page=" + String(page) + "&per_page=" + String(per_page))!
         let url = URL(string: "https://api.github.com/search/users?q=" + "\(searchtext)")!
         
         networker.get(type: GitHub.self, url: url){

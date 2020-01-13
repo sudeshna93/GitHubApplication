@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController , UISearchBarDelegate{
+class ViewController: UIViewController {
     
     //MARK:- Properties
     @IBOutlet weak var searchBar: UISearchBar!
@@ -19,7 +19,7 @@ class ViewController: UIViewController , UISearchBarDelegate{
     var page = 1
     var searchWorkItem: DispatchWorkItem!
     
-    //View Life Cycle
+    //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -30,65 +30,7 @@ class ViewController: UIViewController , UISearchBarDelegate{
         super.viewWillAppear(true)
         
     }
-    
 
-    //MARK: Searchbar delegate Function
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //controller.search(query: searchText)
-        let query = self.searchBar.text!
-        if self.searchBar.text?.isEmpty == false {
-            searchWorkItem?.cancel()
-            searchWorkItem = DispatchWorkItem(block: {
-                print("Did Start searching with term: \(query)")
-                self.controller.download(searchtext: query) { _ in
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                    print(self.controller.githubs)
-                }
-            })
-            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 0.5, execute: searchWorkItem)
-        }
-
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if self.searchBar.text?.isEmpty == false {
-            controller.download(searchtext: self.searchBar.text!) { _ in
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }
-        self.searchBar.endEditing(true)
-    }
-
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        controller.download(searchtext: "") { _ in
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        tableView.reloadData()
-    }
-
-    
-    func downloadRepoNumber (url: URL, _ completion: @escaping (UserInfo) -> Void) {
-    //        if repository.isEmpty == false{
-    //            completion(repository)
-    //            return
-    //        }
-           
-          //  let url = URL(string: url)!
-            networker.get(type: UserInfo.self, url: url) { (result) in
-                print("finished download")
-                self.userinfo = result!
-                completion(self.userinfo!)
-            }
-    }
-
-    
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate{
@@ -114,7 +56,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
           setupNumber(for: cell as! UserDisplayCell, at: row)
           return cell!
       }
-    
+    //Function called when selecting one cell of tableview
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let showDetailsVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowDetailsVC") as? ShowDetailsVC
@@ -127,7 +69,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         self.navigationController?.pushViewController(showDetailsVC!, animated: true)
     }
     
-    
+    //Function for Setup Name in tableview cell to set name of a particuler github user
       func setupName(for cell: UserDisplayCell, at row: Int){
           if let name = controller.githubs[0].items[row].userName ,
               let _ = controller.githubs[0].items[row].repoUrl
@@ -140,6 +82,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
           
       }
     
+    //Function for Setup number of repository of a particular user in tableview cell
     func setupNumber(for cell: UserDisplayCell, at row: Int){
         if  let urls = controller.githubs[0].items[row].url {
             downloadRepoNumber(url: URL(string: urls)!) {_ in
@@ -150,7 +93,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
             }
         }
     }
-    
+     //Function for Setup image in tableview cell to set image from url of a particuler github user
     func setupImage(for cell: UserDisplayCell, at row: Int){
         let github = controller.githubs[0]
         if let _ = cell.prevTag,
@@ -178,6 +121,38 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         }
     }
        
+}
+
+extension ViewController: UISearchBarDelegate{
+    
+    //MARK: Searchbar delegate Function
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let query = self.searchBar.text!
+        if self.searchBar.text?.isEmpty == false {
+            searchWorkItem?.cancel()
+            searchWorkItem = DispatchWorkItem(block: {
+                print("Did Start searching with term: \(query)")
+                self.controller.download(searchtext: query) { _ in
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    print(self.controller.githubs)
+                }
+            })
+            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 0.5, execute: searchWorkItem)
+        }
+
+    }
+
+    //Download function to fetch number of repository
+    func downloadRepoNumber (url: URL, _ completion: @escaping (UserInfo) -> Void) {
+        
+        networker.get(type: UserInfo.self, url: url) { (result) in
+            print("finished download")
+            self.userinfo = result!
+            completion(self.userinfo!)
+        }
+    }
 }
 
 

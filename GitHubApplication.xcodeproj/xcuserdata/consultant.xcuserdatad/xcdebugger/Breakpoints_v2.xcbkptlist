@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C42FCE2D-0BB8-4707-92CF-2E11940985B0"
+            uuid = "B2470BBC-AAC6-45AF-9456-85D903201B26"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GitHubApplication/ViewController.swift"
+            filePath = "GitHubApplication/Services/DecodableNetwork.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "setupNumber(for:at:)"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "get(type:url:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
