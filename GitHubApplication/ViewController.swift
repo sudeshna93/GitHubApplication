@@ -73,8 +73,6 @@ class ViewController: UIViewController , UISearchBarDelegate{
         tableView.reloadData()
     }
 
-   
-    
     
     func downloadRepoNumber (url: URL, _ completion: @escaping (UserInfo) -> Void) {
     //        if repository.isEmpty == false{
@@ -113,6 +111,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
           let row = indexPath.row
           setupName(for: cell as! UserDisplayCell , at: row)
           setupImage(for: cell as! UserDisplayCell, at: row)
+          setupNumber(for: cell as! UserDisplayCell, at: row)
           return cell!
       }
     
@@ -138,16 +137,19 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
           else{
               cell.userName.text = "loading names"
           }
-          if  let urls = controller.githubs[0].items[row].url {
-              downloadRepoNumber(url: URL(string: urls)!) {_ in
-                  
-                  DispatchQueue.main.async {
-                      cell.repoNumberLabel.text = "Repo: " + "\(self.userinfo?.repocount ?? 0)"
-                  }
-              }
-          }
           
       }
+    
+    func setupNumber(for cell: UserDisplayCell, at row: Int){
+        if  let urls = controller.githubs[0].items[row].url {
+            downloadRepoNumber(url: URL(string: urls)!) {_ in
+                
+                DispatchQueue.main.async {
+                    cell.repoNumberLabel.text = "Repo: " + "\(self.userinfo?.repocount ?? 0)"
+                }
+            }
+        }
+    }
     
     func setupImage(for cell: UserDisplayCell, at row: Int){
         let github = controller.githubs[0]

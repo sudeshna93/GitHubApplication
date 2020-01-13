@@ -65,8 +65,15 @@ class ShowDetailsVC: UIViewController, UISearchBarDelegate {
                 if let following = self.userinfo?.following {
                     self.followingLabel.text = "Following: " + "\(following)"
                 }
+                
+                
                 if let joinDate = self.userinfo?.joinDate {
-                    self.joinDateLabel.text = "JoinDate: " + joinDate
+                    let myDateString: String = joinDate // etcetc
+                    if let myDate = myDateString.toDate() {
+                        let myString = myDate.toString()
+                        self.joinDateLabel.text = "JoinDate: " + myString
+                    }
+                    
                 }
                 if let bio = self.userinfo?.bio {
                     self.bioLabel.text = "Bio: " + bio

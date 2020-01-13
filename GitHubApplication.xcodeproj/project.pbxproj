@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021F2F0223CCF40300C35A06 /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F2F0123CCF40300C35A06 /* Extension+Date.swift */; };
 		0241DF0923CB9859004656E1 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0241DF0823CB9859004656E1 /* UserInfo.swift */; };
 		02BD887523C92E5200A2CF6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD887423C92E5200A2CF6F /* AppDelegate.swift */; };
 		02BD887723C92E5200A2CF6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD887623C92E5200A2CF6F /* SceneDelegate.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		021F2F0023CCC5D300C35A06 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		021F2F0123CCF40300C35A06 /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
 		0241DF0823CB9859004656E1 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		02BD887123C92E5200A2CF6F /* GitHubApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02BD887423C92E5200A2CF6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				02BD887D23C92E5200A2CF6F /* GitHubApplication.xcdatamodeld */,
 				02BD88B123C950D400A2CF6F /* UserController.swift */,
 				021F2F0023CCC5D300C35A06 /* README.md */,
+				021F2F0123CCF40300C35A06 /* Extension+Date.swift */,
 			);
 			path = GitHubApplication;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				02BD88B423C994D800A2CF6F /* ShowDetailsVC.swift in Sources */,
 				02BD88B023C9441B00A2CF6F /* UserDisplayCell.swift in Sources */,
 				0241DF0923CB9859004656E1 /* UserInfo.swift in Sources */,
+				021F2F0223CCF40300C35A06 /* Extension+Date.swift in Sources */,
 				02BD88B623C995D000A2CF6F /* RepoDisplayCell.swift in Sources */,
 				02BD887523C92E5200A2CF6F /* AppDelegate.swift in Sources */,
 				02BD887723C92E5200A2CF6F /* SceneDelegate.swift in Sources */,

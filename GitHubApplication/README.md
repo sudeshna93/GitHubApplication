@@ -11,7 +11,6 @@
 
 
 1. Search-as-you-type
-
 * UISearchBarDelegate method
 * update to your Controller.
 
@@ -28,7 +27,7 @@ Problem:
     * if the user keeps typing, cancel the previous-existing workItem.
     
     DONE.
-
+    Implemented on First Screen.
 
 2. User Repo Count
 
