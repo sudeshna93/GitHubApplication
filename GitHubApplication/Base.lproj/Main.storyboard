@@ -33,7 +33,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xez-Km-1Ea">
-                                                    <rect key="frame" x="101" y="33.5" width="142" height="41"/>
+                                                    <rect key="frame" x="101" y="24" width="207" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="xez-Km-1Ea" secondAttribute="height" multiplier="182:53" id="yF3-A9-pGc"/>
                                                     </constraints>
@@ -41,7 +41,7 @@
                                                     <color key="textColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Repo:##" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnD-JB-2HS">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Repo:##" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnD-JB-2HS">
                                                     <rect key="frame" x="277" y="36" width="137" height="37"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="nnD-JB-2HS" secondAttribute="height" multiplier="122:59" id="PmC-1l-2ZC"/>
@@ -58,13 +58,14 @@
                                                 <constraint firstItem="xez-Km-1Ea" firstAttribute="centerY" secondItem="JMR-Qq-bHq" secondAttribute="centerY" id="LWJ-sK-FMa"/>
                                                 <constraint firstItem="nnD-JB-2HS" firstAttribute="centerY" secondItem="JMR-Qq-bHq" secondAttribute="centerY" id="MEd-zv-eR6"/>
                                                 <constraint firstItem="JMR-Qq-bHq" firstAttribute="top" secondItem="AFC-2Z-rhx" secondAttribute="top" constant="11" id="QeQ-kc-s8T"/>
-                                                <constraint firstItem="nnD-JB-2HS" firstAttribute="leading" secondItem="xez-Km-1Ea" secondAttribute="trailing" constant="95" id="gYW-fh-fY3"/>
+                                                <constraint firstItem="nnD-JB-2HS" firstAttribute="leading" secondItem="xez-Km-1Ea" secondAttribute="trailing" constant="30" id="gYW-fh-fY3"/>
                                                 <constraint firstItem="JMR-Qq-bHq" firstAttribute="leading" secondItem="AFC-2Z-rhx" secondAttribute="leading" id="nsy-HT-l9m"/>
                                                 <constraint firstAttribute="bottom" secondItem="JMR-Qq-bHq" secondAttribute="bottom" constant="11" id="qq1-CN-tCa"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imgView" destination="JMR-Qq-bHq" id="Zh6-9i-7LE"/>
+                                            <outlet property="repoNumberLabel" destination="nnD-JB-2HS" id="rMi-6Y-G5v"/>
                                             <outlet property="userName" destination="xez-Km-1Ea" id="DrM-ZL-w7V"/>
                                         </connections>
                                     </tableViewCell>
@@ -149,7 +150,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of the  Github user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ivo-4A-jdZ">
                                         <rect key="frame" x="0.0" y="0.0" width="244" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwf-ay-Wtp">

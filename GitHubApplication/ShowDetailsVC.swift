@@ -31,8 +31,8 @@ class ShowDetailsVC: UIViewController, UISearchBarDelegate {
      var allrepository: [Repository] = []
     //filtered/unfiltered repository
     private var _repository: [Repository] = []
-  
-    var isSearching : Bool = false
+      var isSearching : Bool = false
+    var searchWorkItem: DispatchWorkItem!
     
     //UiView  LifeCycle
     override func viewDidLoad() {
@@ -84,7 +84,24 @@ class ShowDetailsVC: UIViewController, UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-       
+       let query = self.repoSearchBar.text!
+       if self.repoSearchBar.text?.isEmpty == false {
+           searchWorkItem?.cancel()
+           searchWorkItem = DispatchWorkItem(block: {
+               print("Did Start searching with term: \(query)")
+               
+                DispatchQueue.main.async {
+                    self.search(query: self.repoSearchBar.text!)
+                    self.repotableView.reloadData()
+                }
+
+           })
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1.0, execute: searchWorkItem)
+       }
+       else{
+            search(query: "")
+            self.repotableView.reloadData()
+        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -92,11 +109,12 @@ class ShowDetailsVC: UIViewController, UISearchBarDelegate {
         self.repotableView.reloadData()
     }
     
-    
+    //Function for get Data from a Url
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
+   // Function for downloading image of a particular Github user
     func downloadImage(url: URL){
         getData(from: url) { data, response, error in
             guard let data = data, error == nil else { return }
@@ -106,6 +124,7 @@ class ShowDetailsVC: UIViewController, UISearchBarDelegate {
         }
     }
 
+    //Function for downloading information about a github user
     func download(_ completion: @escaping (UserInfo) -> Void) {
         let url = URL(string: userinfoUrl )!
         networker.get(type: UserInfo.self, url: url){
@@ -115,7 +134,7 @@ class ShowDetailsVC: UIViewController, UISearchBarDelegate {
             
         }
     }
-    
+    //Function for downloading repositories for a particular Github User
     func downloadRepo (_ completion: @escaping ([Repository]) -> Void) {
 //        if repository.isEmpty == false{
 //            completion(repository)
@@ -163,6 +182,7 @@ extension ShowDetailsVC: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    //Function for Setup Name in tableview cell to set repository name, Number of fork, Number of star for a particuler github repository
     func setupName(for cell: RepoDisplayCell, at row: Int){
         if let reponame = _repository[row].repoName{
              cell.repositoryName.text = "Repo:" + reponame
@@ -175,7 +195,7 @@ extension ShowDetailsVC: UITableViewDelegate, UITableViewDataSource{
         }
         
     }
-    
+    //Search Function for searching over repository
     func search(query: String) -> [Repository] {
         var repository : [Repository] = []
         if query.isEmpty {

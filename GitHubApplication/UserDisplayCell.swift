@@ -10,6 +10,7 @@ import UIKit
 
 class UserDisplayCell: UITableViewCell {
 
+    @IBOutlet weak var repoNumberLabel: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var imgView: UIImageView!
     var prevTag: Int? = nil

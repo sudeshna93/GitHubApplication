@@ -45,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		021F2F0023CCC5D300C35A06 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0241DF0823CB9859004656E1 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		02BD887123C92E5200A2CF6F /* GitHubApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02BD887423C92E5200A2CF6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +134,7 @@
 				02BD888523C92E5500A2CF6F /* Info.plist */,
 				02BD887D23C92E5200A2CF6F /* GitHubApplication.xcdatamodeld */,
 				02BD88B123C950D400A2CF6F /* UserController.swift */,
+				021F2F0023CCC5D300C35A06 /* README.md */,
 			);
 			path = GitHubApplication;
 			sourceTree = "<group>";

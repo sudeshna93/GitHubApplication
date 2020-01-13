@@ -10,7 +10,7 @@ import Foundation
 
 class DecodableNetwork {
     
-    //properties
+    //MARK: properties
     
     let jsonDecoder: JSONDecoder
     var session : URLSession

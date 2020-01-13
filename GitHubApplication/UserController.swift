@@ -37,7 +37,7 @@ class UserController: UserControllerProtocol {
     
     //MARK: Methods
     func download(searchtext: String, _ completion: @escaping ([GitHub]) -> Void) {
-//&page=2&per_page=100
+
 //        let url = URL(string: "https://api.github.com/search/users?q=" + "\(searchtext)" + "&page=" + String(page) + "&per_page=" + String(per_page))!
         let url = URL(string: "https://api.github.com/search/users?q=" + "\(searchtext)")!
         
@@ -46,19 +46,6 @@ class UserController: UserControllerProtocol {
             print("finished download")
            
             self.githubs = [result!]
-           
-//            for i in self.githubs[0].items{
-//                print(i.url)
-//                if let urlString = URL(string:i.url!) {
-//                    print("------" , urlString)
-//                    self.networker.get(type: UserInfo.self, url: urlString) { (resu) in
-//                        print("+++++++++" , resu)
-//                        self.userinfo.append(resu!)
-//                        print(self.userinfo)
-//                    }
-//                }
-//
-//            }
             completion(self.githubs)
             
         }
